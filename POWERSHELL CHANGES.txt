@@ -1,0 +1,29 @@
+FIL HTM.HTMLS
+
+Get-ChildItem -Filter "*.htm.html" | Rename-Item -NewName { $_.Name -replace '\.htm\.html$', '.html' }
+
+*****************************************************************************************************
+SFNA 2022 TO SFTNA 2025
+
+Get-ChildItem -Filter "*.html" -Recurse | ForEach-Object {
+    $content = Get-Content $_.FullName -Raw
+    $newContent = $content -replace "2022 RESULTS", "2025 RESULTS"
+    Set-Content -Path $_.FullName -Value $newContent -NoNewline
+}
+
+Write-Host "Replacement completed successfully!"
+**************************************************************************************************
+WITHI DOUBLE LINK
+HREF=" TO onclick="window.open('
+
+tml"> TO tml');" href="https://chikraighotoops.com/4/7825875">
+
+# Replace tml"> with tml');" href="https://chikraighotoops.com/4/7825875">
+Get-ChildItem -Filter "*.html" -Recurse | ForEach-Object {
+    Write-Host "Processing: $($_.Name)"
+    $content = Get-Content $_.FullName -Raw
+    $newContent = $content -replace 'htm">', 'html'');" href="https://smrtlink-earn.github.io/cpm">'
+    Set-Content -Path $_.FullName -Value $newContent -NoNewline
+}
+
+Write-Host "Replacement completed successfully!" -ForegroundColor Green
